@@ -1,4 +1,17 @@
-<?php include('../config.php') ?>
+<?php 
+include('../config.php'); 
+
+?>
+<?php
+$url = isset($_GET['url']) ? $_GET['url'] : 'index';
+
+if(file_exists('pages/'.$url.'.php')){
+    include('pages/'.$url.'.php');
+    die();        
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +24,10 @@
 <body>
   <header class="header__painel">
     <h1>Painel de controle LEO LEARNING</h1>
+    <nav>
+      <a href="<?php INCLUDE_PATH_PAINEL ?>listar-cursos">Excluir cursos</a>
+      <a href="<?php INCLUDE_PATH_PAINEL ?>listar-slides">Excluir slides </a>
+    </nav>
   </header>  
 
   <?php
