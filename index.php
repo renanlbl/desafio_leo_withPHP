@@ -18,13 +18,13 @@
           <i class="fas fa-bars"></i>
           <nav class="nav__mobile">
             <ul>
-              <li><a href=#>LINK 1</a></li>
-              <li><a href=#>LINK 2</a></li>
-              <li><a href=#>LINK 3</a></li>
-              <li><a href=#>LINK 4</a></li>
-              <li><a href=#>LINK 5</a></li>
-              <li><a href=#>LINK 6</a></li>
-              <li><a href=#>LINK 7</a></li>
+              <li><a href="<?php echo INCLUDE_PATH_PAINEL ?>">PAINEL DE CONTROLE</a></li>
+              <li><a href='#'>LINK 2</a></li>
+              <li><a href='#'>LINK 3</a></li>
+              <li><a href='#'>LINK 4</a></li>
+              <li><a href='#'>LINK 5</a></li>
+              <li><a href='#'>LINK 6</a></li>
+              <li><a href='#'>LINK 7</a></li>
             </ul>
           </nav>
         </div>
@@ -44,7 +44,7 @@
               <i class="fas fa-chevron-down"></i>
               <nav class="account__nav">
                 <ul>
-                  <li><a href="#">Menu 1</a></li>
+                  <li><a href="<?php echo INCLUDE_PATH_PAINEL ?>">PAINEL DE CONTROLE</a></li>
                   <li><a href="#">Menu 2</a></li>
                   <li><a href="#">Menu 3</a></li>
                 </ul>
@@ -73,44 +73,38 @@
       <div class="container">
         <div class="slider__info--wrapper flexVertical">
           <div class="slider__info">
-            <h2>lorem ipsum 1</h2>
+            <h2>LOREM IPSUM 0</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ipsum, quia at aliquam animi provident, 
-              architecto accusamus, laborum sit consequuntur laboriosam ipsam voluptates voluptatibus? Voluptas fuga explicabo deserunt mollitia provident!
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ipsum, quia at aliquam animi provident, architecto accusamus, 
+            laborum sit consequuntur laboriosam ipsam voluptates voluptatibus? Voluptas fuga explicabo deserunt mollitia provident!
             </p>
             <a class="flexHorizontalVertical" href=#>Ver curso</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="slider__imgs flexVertical" style="background-image: url('src/assets/banner2.jpg')">
+    <?php 
+      $sql = MySql::conectar()->prepare("SELECT * FROM `tb_slides`");
+      $sql->execute();
+      $slides = $sql->fetchAll();
+      foreach ($slides as $key => $value) {       
+    ?>
+    <div class="slider__imgs flexVertical" style="background-image: url('painel/uploads/<?php echo $value['img'] ?>')">
       <div class="container">
-          <div class="slider__info--wrapper flexVertical">
-            <div class="slider__info">
-              <h2>lorem ipsum 2</h2>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ipsum, quia at aliquam animi provident, 
-                architecto accusamus, laborum sit consequuntur laboriosam ipsam voluptates voluptatibus? Voluptas fuga explicabo deserunt mollitia provident!
-              </p>
-              <a class="flexHorizontalVertical" href=#>Ver curso</a>
-            </div>
+        <div class="slider__info--wrapper flexVertical">
+          <div class="slider__info">
+            <h2><?php echo $value['titulo'] ?></h2>
+            <p>
+              <?php echo $value['descricao'] ?>
+            </p>
+            <a class="flexHorizontalVertical" href=#>Ver curso</a>
           </div>
         </div>
+      </div>
     </div>
-    <div class="slider__imgs flexVertical" style="background-image: url('src/assets/banner3.jpg')">
-      <div class="container">
-          <div class="slider__info--wrapper flexVertical">
-            <div class="slider__info">
-              <h2>lorem ipsum 3</h2>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis ipsum, quia at aliquam animi provident, 
-                architecto accusamus, laborum sit consequuntur laboriosam ipsam voluptates voluptatibus? Voluptas fuga explicabo deserunt mollitia provident!
-              </p>
-              <a class="flexHorizontalVertical" href=#>Ver curso</a>
-            </div>
-          </div>
-        </div>
-    </div>
+    <?php
+      }
+    ?>    
     <div class="slider__dots--wrapper flexVertical flexSpaceAround"></div>
     
   </section>
@@ -131,16 +125,25 @@
     <div class="container">
       <h2>meus cursos</h2>
       <div class="courses__list flex">
+        <?php 
+        $sql = MySql::conectar()->prepare("SELECT * FROM `tb_courses`");
+        $sql->execute();
+        $courses = $sql->fetchAll();
+        foreach ($courses as $key => $value) {       
+      ?>
         <div class="courses__card">
           <div>
-            <img src="src/assets/course.jpg" />
+            <img src="painel/uploads/<?php echo $value['img'] ?>" />
           </div>
           <div class="courses__card--description">
-            <h4>pellentesque malesuada</h4>
-            <p>Lorem, ipsum dolor sit amet pallentesque malesuada, a phareta augue</p>
+            <h4><?php echo $value['titulo'] ?></h4>
+            <p><?php echo $value['descricao'] ?></p>
           </div>
           <a class="courses__button flexHorizontalVertical" href="#">ver curso</a>
-        </div>        
+        </div> 
+      <?php
+        }
+      ?>
         <div class="courses__card">
           <img src="src/assets/course.jpg" />
           <div class="courses__card--description">
@@ -157,10 +160,10 @@
           </div>
           <a class="courses__button flexHorizontalVertical" href="#">ver curso</a>
         </div>        
-        <div class="courses__add flexHorizontalVertical flexColumn">
+        <a href="<?php echo INCLUDE_PATH_PAINEL ?>" class="courses__add flexHorizontalVertical flexColumn">
             <i class="far fa-calendar-plus"></i>
             <p>adicionar <br/> curso</p>            
-        </div>        
+        </a>        
       </div>
     </div>
   </section>
@@ -198,7 +201,6 @@
 
 
 <script src="src/js/slider.js"></script>
-<script src="src/js/form-cursos.js"></script>
 <script src="src/js/modal.js"></script>
 <script src="src/js/menu-hamburguer.js"></script>
 </body>
