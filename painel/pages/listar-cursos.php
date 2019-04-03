@@ -18,6 +18,7 @@
 		
   ?>
   <section class="flexHorizontalVertical flexColumn listar__cursos">
+    <a href="<?php echo INCLUDE_PATH_PAINEL ?>">HOME</a>
     <h2>Exclua os cursos não desejados</h2>
     <div class="listar__cursos--wrapper">
       <?php
