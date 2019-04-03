@@ -1,0 +1,61 @@
+footer
+  .footer__contact
+    width: 100%
+    background: #ffffff
+    padding: 25px 0
+
+    .footer__about
+      max-width: 300px
+      img 
+        margin-bottom: 20px
+      p
+        color: #b3b3b3
+
+    .footer__contact--right
+      .footer__telephone 
+        margin-right: 120px
+        h5
+          font-size: 17px
+          text-transform: uppercase
+          margin-bottom: 20px
+        p 
+          color: #a3aea6
+
+      .footer__social
+        text-align: center
+        h5
+          font-size: 17px
+          text-transform: uppercase
+          margin-bottom: 20px
+        i
+          font-size: 30px
+          color: #b5b5b5
+          margin: 0 7px
+          cursor: pointer
+      
+
+  .footer__copyright
+    padding: 7px 0
+    p
+      color: #aeacad
+ 
+
+@media screen and (max-width: 768px)
+  .footer__about
+    margin: 0 0 30px  
+    text-align: center
+
+  .footer__about--wrapper 
+    flex-direction: column
+
+  .footer__contact--right
+    flex-direction: column
+    margin: 0 0 30px
+
+  footer .footer__contact .footer__contact--right .footer__telephone
+    margin: 15px auto
+    text-align: center
+
+  footer .footer__contact .footer__contact--right .footer__social
+    margin: 15px auto
+    text-align: center

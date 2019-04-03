@@ -1,0 +1,89 @@
+section.slider
+  width: 100%
+  height: 330px    
+  position: relative
+
+  .slider__imgs 
+    display: none
+    position: absolute
+    left: 0
+    right: 0
+    width: 100%
+    height: 100%    
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+
+  .slider__arrowLeft
+    z-index: 99
+    cursor: pointer
+    position: absolute
+    left: 20px
+    font-size: 47px
+    color: #efe7e4
+
+  .slider__arrowRight
+    z-index: 99
+    cursor: pointer
+    position: absolute
+    right: 20px
+    font-size: 47px
+    color: #efe7e4
+
+  .slider__dots--wrapper
+    z-index: 10
+    background: #fff
+    width: 80px
+    height: 30px
+    border-radius: 20px
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translate(-50%, 50%)
+
+    .slider__dots
+      display: block
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      cursor: pointer
+      background-color: #cdcbcc
+      
+      &.slider__dots--active 
+        background-color: #4c4040
+
+  .slider__info--wrapper
+    width: 100%
+
+  .slider__info 
+    padding: 30px
+    z-index: 10
+    width: 390px
+    height: 290px
+    background: rgba(0,0,0,0.8)
+
+    h2
+      text-transform: uppercase
+      color: #fff
+      padding-bottom: 30px
+    p
+      color: #fff
+      padding-bottom: 30px
+
+    a         
+      width: 125px
+      height: 30px
+      border-radius: 20px
+      text-decoration: none
+      color: #fff
+      border: 1px solid #fff
+
+@media screen and (max-width: 1024px)
+  section.slider
+    .slider__info
+      margin: 0 auto
+
+@media screen and (max-width: 768px)
+  section.slider
+    .slider__info
+      width: 330px

@@ -1,0 +1,146 @@
+section.courses
+  padding: 50px 0
+
+  .form__courses 
+    display: none
+    justify-content: center
+    align-items: center
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    height: 100vh
+    background: rgba(0,0,0,0.8  )
+    z-index: 11
+   
+    form
+      border: 5px solid black
+      padding: 15px
+      width: 100%
+      max-width: 370px
+      height: 390px
+      background: #fff
+      display: flex
+      flex-direction: column
+      position: relative      
+
+      input[type=text]
+        height: 40px
+        margin-bottom: 30px
+        padding-left: 7px
+        border: 1px solid black
+      
+      textarea
+        height: 80px
+        margin-bottom: 30px
+        padding: 7px 
+        border: 1px solid black
+      
+      label
+        color: #777
+        font-size: 14px
+        margin-bottom: 10px
+
+      .form__courses--buttons 
+        position: absolute
+        bottom: 20px
+
+      button[type=submit] 
+        width: 100px
+        height: 30px
+        color: white
+        background: green
+        border: none
+        cursor: pointer
+
+      div.form__close
+        width: 100px
+        height: 30px
+        color: white
+        background: red
+        border: none
+        cursor: pointer
+        margin: 0 10px
+
+
+  h2
+    text-transform: uppercase
+    color: #545454
+    font-weight: bold
+    padding-bottom: 15px
+    border-bottom: 1px solid #d3d3d3
+
+  .courses__list
+    margin-top: 20px
+
+  .courses__add
+    cursor: pointer
+    width: 300px
+    height: 330px    
+    border: 2px dashed #9f9f9f
+    margin-top: 15px
+    margin-right: 15px
+    margin-bottom: 0
+    text-align: center
+
+    i 
+      font-size: 70px
+      margin-bottom: 30px
+      color: #9f9f9f
+    
+    p
+      font-size: 20px
+      font-weight: bold
+      color: #9f9f9f
+      text-transform: uppercase
+
+  .courses__card
+    width: 300px
+    height: 330px
+    background: #fff 
+    margin-top: 15px
+    margin-right: 15px
+    margin-bottom: 0
+    text-align: center
+
+    &:first-of-type
+      margin-top: 15px
+      margin-right: 15px
+      margin-left: 0
+
+    img 
+      width: 100%      
+      height: 150px
+      margin-bottom: 20px
+    
+    .courses__card--description
+      padding: 0 20px
+      text-align: left
+      min-height: 77px
+
+      h4
+        text-transform: uppercase
+        font-size: 17px
+        color: #555555
+        margin-bottom: 20px
+
+      p
+        color: #aeaeae
+        margin-bottom: 20px 
+
+    .courses__button
+      height: 40px
+      width: 250px
+      background: #01a02a
+      border-radius: 20px
+      margin: 0 auto
+      text-decoration: none
+      text-transform: uppercase
+      color: #ffffff
+      font-weight: bold    
+
+    
+    
+@media screen and (max-width: 1024px)
+  .courses__list.flex
+    justify-content: center
